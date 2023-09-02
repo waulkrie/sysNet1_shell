@@ -2,7 +2,7 @@
  *  param.hpp
  *  
  *  Andrew Bare (aob1) - Donte Gordon (dxg2)
- *  Copyright 2009 UWF - CS. All rights reserved.
+ *  Copyright 2023 UWF - CS. All rights reserved.
  *
  */
 
@@ -16,8 +16,7 @@ using  namespace std;
 Param::Param() 
 {
 	inputRedirect = outputRedirect = NULL;
-	background = 0;
-	argumentCount = 0;
+	background = argumentCount = 0;
 }
 
 void Param::addArgument (char* newArgument)
@@ -40,7 +39,7 @@ char** Param::getArguments(string& input)
 		// tokenize the input
 		char* token = strtok((char*)input.c_str(), " ");
 		while(token != NULL) {
-			cout << "adding token: " << token << endl; // debug
+			// cout << "adding token: " << token << endl; // debug
 			addArgument(token);
 			token = strtok(NULL, " ");
 		}

@@ -15,7 +15,7 @@ int main(int argc, const char** argv) {
     bool debug_mode = false;
 
     //test for debug mode
-    if(argc > 1 && strcmp(argv[1], "-d") == 0 ) {
+    if(argc > 1 && (strcmp(argv[1], "-d") == 0 || strcmp(argv[1], "--debug") == 0) ) {
         debug_mode = true;
     }
 
