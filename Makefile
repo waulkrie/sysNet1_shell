@@ -1,13 +1,13 @@
 CFLAGS = -g -Wall 
-CC = gcc
+CC = g++
 
 objects = myshell.o param.o
 
 myshell: $(objects)
-	$(CC) -o test $(objects)
+	$(CC) -o myshell $(objects)
 
-myshell.o: myshell.cpp param.h
-param.o: param.c param.h
+myshell.o: myshell.cpp param.hpp
+param.o: param.cpp param.hpp
 
 .PHONY : clean
 clean: 

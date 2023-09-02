@@ -10,6 +10,7 @@
 #define _PARAM_CPP
 
 #include <iostream>
+#include <cstring>
 #include "param.hpp"
 using  namespace std;
 
@@ -21,9 +22,11 @@ Param::Param()
 }
 
 void Param::addArgument (char* newArgument)
-{
-	this->argumentVector[argumentCount++] = newArgument; // might need to copy and allocate memory/update pointer
+{ 
+	// might need to copy and allocate memory/update pointer
+	this->argumentVector[argumentCount++] = newArgument;
 }
+
 
 char** Param::getArguments(string& input)
 {

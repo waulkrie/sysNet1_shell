@@ -6,18 +6,26 @@
  *
  */
 
-#include <iostream>
-#include <string>
-#include <param.hpp>
+#include "param.hpp"
+#include <cstring>
 
 // main
 int main(int argc, const char** argv) {
     Param p;
+    bool debug_mode = false;
+
+    //test for debug mode
+    if(argc > 1 && strcmp(argv[1], "-d") == 0 ) {
+        debug_mode = true;
+    }
 
     string input = "";
     while(input != "exit") {
         p.getArguments(input);
+        if(debug_mode){
+            p.printParams();
+        }
     }
     cout << "exiting..." << endl;
-    return 0;
+    return 0;    
 }
