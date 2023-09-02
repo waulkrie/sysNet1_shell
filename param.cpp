@@ -1,7 +1,7 @@
 /**
  *  param.hpp
  *  
- *  Thomas Reichherzer
+ *  Andrew Bare (aob1) - Donte Gordon (dxg2)
  *  Copyright 2009 UWF - CS. All rights reserved.
  *
  */
@@ -10,7 +10,6 @@
 #define _PARAM_CPP
 
 #include <iostream>
-#include <cstring>
 #include "param.hpp"
 using  namespace std;
 
@@ -23,8 +22,11 @@ Param::Param()
 
 void Param::addArgument (char* newArgument)
 { 
-	// might need to copy and allocate memory/update pointer
-	this->argumentVector[argumentCount++] = newArgument;
+
+	// Allocate memory for the new argument and copy the token
+    argumentVector[argumentCount] = new char[strlen(newArgument) + 1];
+    strcpy(argumentVector[argumentCount++], newArgument);
+
 }
 
 
@@ -32,8 +34,7 @@ char** Param::getArguments(string& input)
 {
 	// get the arguments
 		input.clear();
-        cout << "myshell >";
-        cin >> input;
+        cout << "myshell> " << flush;
         getline(cin, input);
 
 		// tokenize the input

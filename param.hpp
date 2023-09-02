@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
+
 
 using  namespace std;
 /* Don't test program with more than this many tokens for input  */
