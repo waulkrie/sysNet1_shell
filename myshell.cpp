@@ -1,7 +1,7 @@
 /**
  *  myshell.cpp
  *  
- *  Andrew Bare (aob1) - Donte Gordon (dxg2)
+ *  Andrew Bare (aob1) - Dante Gordon (dxg2)
  *  Copyright 2009 UWF - CS. All rights reserved.
  *
  */
