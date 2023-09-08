@@ -55,18 +55,22 @@ void Param::analyzeToken(char* token){
 	int i = temp.find('<');
 	char fileName[30];
 	if(i != -1){
-		temp = temp.substr(1);
-		
-		strcpy(fileName, temp.c_str());
-		setInputRedirect(fileName);
+		if(temp.size()>1){
+			temp = temp.substr(1);
+			strcpy(fileName, temp.c_str());
+			setInputRedirect(fileName);
+		}else cout <<"error no filename found\n";
 	}
 
 	temp = token;
 	i = temp.find('>');
-	if(i != -1){
-		temp = temp.substr(1);
-		strcpy(fileName, temp.c_str());
-		setOutputRedirect(fileName);
+	if(i != -1 )
+	{
+		if(temp.size()>1){
+			temp = temp.substr(1);
+			strcpy(fileName, temp.c_str());
+			setOutputRedirect(fileName);
+		}else cout << "error no filename found \n";
 	}
 
 	temp = token;
