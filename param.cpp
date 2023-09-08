@@ -97,21 +97,18 @@ void Param::setBackground(int newBackground)
 
 char* Param::getInputRedirect()
 {
-	//finish this
-	return NULL;
+	return inputRedirect;
 }
 		
 		
 char* Param::getOutputRedirect()
 {
-	//finish this
-	return NULL;
+	return outputRedirect;
 }
 		
 int Param::getBackground()
 {
-	// finish this
-    return 0;
+ return background;
 }
 
 
