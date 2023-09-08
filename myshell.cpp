@@ -11,7 +11,6 @@
 
 // main
 int main(int argc, const char** argv) {
-    Param p;
     bool debug_mode = false;
 
     //test for debug mode
@@ -21,6 +20,7 @@ int main(int argc, const char** argv) {
 
     string input = "";
     while(input != "exit") {
+        Param p;
         p.getArguments(input);
         if(debug_mode){
             p.printParams();

@@ -4,5 +4,7 @@
         "xlocnum": "cpp",
         "xstring": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "editor.formatOnSave": true,
+    "clang-format.executable": "/usr/bin/clang-format"
 }

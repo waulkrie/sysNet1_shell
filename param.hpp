@@ -54,7 +54,7 @@ class Param
 		 */
 		char** getArguments(string& input);
 
-		void analyzeToken(char* token);
+		bool analyzeToken(char* token);
 	
 		// getter & setter functions
 		
