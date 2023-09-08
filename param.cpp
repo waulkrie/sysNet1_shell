@@ -1,7 +1,7 @@
 /**
  *  param.hpp
  *  
- *  Andrew Bare (aob1) - Donte Gordon (dxg2)
+ *  Andrew Bare (aob1) - Dante Gordon (dxg2)
  *  Copyright 2023 UWF - CS. All rights reserved.
  *
  */
@@ -39,7 +39,8 @@ char** Param::getArguments(string& input)
 		// tokenize the input
 		char* token = strtok((char*)input.c_str(), " ");
 		while(token != NULL) {
-			// cout << "adding token: " << token << endl; // debug
+			cout << "adding token: " << token << endl; // debug
+			analyzeToken(token);
 			addArgument(token);
 			token = strtok(NULL, " ");
 		}
@@ -49,19 +50,45 @@ char** Param::getArguments(string& input)
 	return NULL;
 }
 
+void Param::analyzeToken(char* token){
+	string temp = token;
+	int i = temp.find('<');
+	char fileName[30];
+	if(i != -1){
+		temp = temp.substr(1);
+		
+		strcpy(fileName, temp.c_str());
+		setInputRedirect(fileName);
+	}
+
+	temp = token;
+	i = temp.find('>');
+	if(i != -1){
+		temp = temp.substr(1);
+		strcpy(fileName, temp.c_str());
+		setOutputRedirect(fileName);
+	}
+
+	temp = token;
+	i = temp.find('&');
+	if(i != -1){
+		setBackground(1);
+	}else setBackground(0);
+	
+}
 void Param::setInputRedirect(char *newInputRedirect)
 {
-	//finish this
+	inputRedirect = newInputRedirect;
 }
 
 void Param::setOutputRedirect(char *newOutputRedirect)
 {
-	//finish this
+	outputRedirect = newOutputRedirect;
 }
 		
 void Param::setBackground(int newBackground)
 {
-	//finish this
+	background = newBackground;
 }
 
 char* Param::getInputRedirect()
