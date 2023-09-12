@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "/home/anon/projects/sysNet1_shell/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -14,7 +14,27 @@
             "compilerPath": "C:/Program Files/LLVM/bin/clang++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-clang-x86"
+            "intelliSenseMode": "windows-clang-x86",
+            "compilerPathInCppPropertiesJson": "C:/Program Files/LLVM/bin/clang++.exe",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "/home/anon/projects/sysNet1_shell/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        },
+        {
+            "name": "linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4
