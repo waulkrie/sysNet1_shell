@@ -31,9 +31,10 @@ void Parse::execute(){
         exit(1);
     } else if(pid == 0){
         // child process
-        cout << "child " << param->getArguments(input)[0] << endl;
-        if(execvp(param->getArguments(input)[0], param->getArguments(input)) < 0){
-            cout << "Error: execvp failed" << endl;
+        cout << "child " << param->getArguments()[0] << endl;
+        int ret = 0;
+        if((ret = execvp(param->getArguments()[0], &param->getArguments()[1])) < 0){
+            cout << "Error: execvp failed : " << ret << endl;
             exit(1);
         }
     } else {
