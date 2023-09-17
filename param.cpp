@@ -33,7 +33,7 @@ void Param::addArgument(char* newArgument)
     strcpy(argumentVector[argumentCount++], newArgument);
 }
 
-char** Param::getArguments(string& input)
+char** Param::consumeArguments(string& input)
 {
     // get the arguments
     input.clear();
@@ -50,6 +50,10 @@ char** Param::getArguments(string& input)
     }
 
     return NULL;
+}
+
+char** Param::getArguments(){
+    return this->argumentVector;
 }
 
 bool Param::analyzeToken(char* token)

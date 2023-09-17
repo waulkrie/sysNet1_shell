@@ -53,7 +53,8 @@ class Param
 		 * Note: 
 		 *   Caller must deallocate memory for the list.
 		 */
-		char** getArguments(string& input);
+		char** consumeArguments(string& input);
+		char** getArguments();
 
 		bool analyzeToken(char* token);
 	

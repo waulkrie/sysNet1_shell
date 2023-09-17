@@ -21,7 +21,7 @@ int main(int argc, const char** argv) {
     string input = "";
     while(input != "exit") {
         Param p;
-        p.getArguments(input);
+        p.consumeArguments(input);
         if(debug_mode){
             p.printParams();
         }
