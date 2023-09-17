@@ -19,6 +19,12 @@ Param::Param()
     background = argumentCount = 0;
 }
 
+Param::~Param(){
+    for(uint8_t i ; i < this->argumentCount; i++ ){
+        delete this->argumentVector[i];
+    }
+}
+
 void Param::addArgument(char* newArgument)
 {
 

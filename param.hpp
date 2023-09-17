@@ -34,6 +34,7 @@ class Param
 		 * Constructs an empty Param object.
 		 */
 		Param(); 
+		~Param();
 		
 		/**
 		 * Adds an argument string to the argument list in this object. This function

@@ -6,7 +6,7 @@
  *
  */
 
-#include "param.hpp"
+#include "parse.hpp"
 #include <cstring>
 
 // main
@@ -25,6 +25,8 @@ int main(int argc, const char** argv) {
         if(debug_mode){
             p.printParams();
         }
+        Parse par(&p);
+        par.execute();
     }
     cout << "exiting..." << endl;
     return 0;    
