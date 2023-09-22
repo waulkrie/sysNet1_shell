@@ -42,6 +42,13 @@ class Param
          * @param newArgument a new argument to be added to the argument list; 
 		 *                    if NULL nothing will be added		 
          */
+		~Param(){
+			for(int i = 0; i<argumentCount; ++i){
+				delete [] argumentVector[i];
+			}
+			cout << "destruction has occurred!" << endl;
+
+		}
 		void addArgument (char* newArgument);
 		
 		/**
