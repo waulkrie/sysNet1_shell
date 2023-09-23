@@ -1,6 +1,6 @@
 /**
  *  param.hpp
- *  
+ *
  *  Andrew Bare (aob1) - Dante Gordon (dxg2)
  *  Copyright 2023 UWF - CS. All rights reserved.
  *
@@ -52,8 +52,8 @@ char** Param::consumeArguments(string& input)
     char* token = strtok((char*)input.c_str(), " ");
     while (token != NULL) {
         // cout << "adding token: " << token << endl; // debug
-        if(analyzeToken(token) == true)
-        	addArgument(token);
+        if (analyzeToken(token) == true)
+            addArgument(token);
         token = strtok(NULL, " ");
     }
 
@@ -133,19 +133,26 @@ int Param::getBackground()
 
 void Param::printParams()
 {
-    cout << "InputRedirect: ["
-         << (inputRedirect != NULL)
-        ? inputRedirect
-        : "NULL";
-    cout << "]"
-         << endl
-         << "OutputRedirect: ["
-         << (outputRedirect != NULL)
-        ? outputRedirect
-        : "NULL";
-    cout << "]"
-         << endl
-         << "Background: ["
+    cout << "InputRedirect: [";
+    if (inputRedirect != NULL) {
+        cout << inputRedirect
+             << "]"
+             << endl;
+    } else
+        cout << "NULL"
+             << "]"
+             << endl;
+    cout << "OutputRedirect: [";
+    if (outputRedirect != NULL) {
+        cout << outputRedirect
+             << "]"
+             << endl;
+    } else {
+        cout << "NULL"
+             << "]"
+             << endl;
+    }
+    cout << "Background: ["
          << background
          << "]"
          << endl
