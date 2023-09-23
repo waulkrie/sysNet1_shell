@@ -31,7 +31,7 @@ void Parse::execute(){
         exit(1);
     } else if(pid == 0){
         // child process
-        // cout << "child " << param->getArguments()[0] << endl;
+        cout << "child " << param->getArguments()[0] << endl;
         int ret = 0;
         char** args = param->getArguments();
         // char* args[] = { "ls", "-la", NULL };
