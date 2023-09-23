@@ -37,6 +37,8 @@ void Param::addArgument(char* newArgument)
     // Allocate memory for the new argument and copy the token
     argumentVector[argumentCount] = new char[strlen(newArgument) + 1];
     strcpy(argumentVector[argumentCount++], newArgument);
+    argumentVector[argumentCount] = NULL; // set last element to NULL
+
 }
 
 char** Param::consumeArguments(string& input)
