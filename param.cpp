@@ -23,6 +23,12 @@ Param::~Param(){
     for(uint8_t i ; i < this->argumentCount; i++ ){
         delete this->argumentVector[i];
     }
+    if(this->inputRedirect != NULL){
+        delete this->inputRedirect;
+    }
+    if(this->outputRedirect != NULL){
+        delete this->outputRedirect;
+    }
 }
 
 void Param::addArgument(char* newArgument)
@@ -31,6 +37,8 @@ void Param::addArgument(char* newArgument)
     // Allocate memory for the new argument and copy the token
     argumentVector[argumentCount] = new char[strlen(newArgument) + 1];
     strcpy(argumentVector[argumentCount++], newArgument);
+    argumentVector[argumentCount] = NULL; // set last element to NULL
+
 }
 
 char** Param::consumeArguments(string& input)
@@ -61,23 +69,26 @@ bool Param::analyzeToken(char* token)
     string temp = token;
     int i = temp.find('<');
     char fileName[30];
+
+    // input redirect
     if (i != -1) {
         if (temp.size() > 1) {
             temp = temp.substr(1);
-            strcpy(fileName, temp.c_str());
-            setInputRedirect(fileName);
+            // strcpy(fileName, temp.c_str());
+            setInputRedirect(strdup(temp.c_str())); // free
             return false;
         } else
             cout << "error no filename found\n";
     }
 
+    // output redirect
     temp = token;
     i = temp.find('>');
     if (i != -1) {
         if (temp.size() > 1) {
             temp = temp.substr(1);
-            strcpy(fileName, temp.c_str());
-            setOutputRedirect(fileName);
+            // strcpy(fileName, temp.c_str());
+            setOutputRedirect(strdup(temp.c_str()));
             return false;
         } else
             cout << "error no filename found \n";
