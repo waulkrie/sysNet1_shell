@@ -18,14 +18,15 @@ using namespace std;
 #define MAXARGS 32
 
 /* Class to hold input data                                  */
-class Param {
-private:
-    char* inputRedirect; /* file name or NULL            */
-    char* outputRedirect; /* file name or NULL            */
-    int background; /* either 0 (false) or 1 (true) */
-    int argumentCount; /* same as argc in main()       */
-    char* argumentVector[MAXARGS]; /* array of strings             */
-
+class Param
+{
+	private:
+		char *inputRedirect;           /* file name or NULL            */
+		char *outputRedirect;          /* file name or NULL            */
+		int   background;              /* either 0 (false) or 1 (true) */
+		int   argumentCount;           /* same as argc in main()       */
+		char *argumentVector[MAXARGS]; /* array of strings             */
+		
 public:
     /**
      * Constructs an empty Param object.
@@ -40,14 +41,7 @@ public:
      *                    if NULL nothing will be added
      */
 
-    ~Param()
-    {
-        for (int i = 0; i < argumentCount; ++i) {
-            delete[] argumentVector[i];
-            argumentVector[i] = NULL;
-        }
-        cout << "destruction has occurred!" << endl;
-    }
+    ~Param();
 
     void addArgument(char* newArgument);
 
@@ -59,9 +53,11 @@ public:
      * Note:
      *   Caller must deallocate memory for the list.
      */
-    char** getArguments(string& input);
+    char** getArguments();
 
     bool analyzeToken(char* token);
+
+    char** consumeArguments(string& input);
 
     // getter & setter functions
 
