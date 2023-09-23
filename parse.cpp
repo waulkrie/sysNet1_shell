@@ -31,11 +31,14 @@ void Parse::execute(){
         exit(1);
     } else if(pid == 0){
         // child process
-        int ret = 0;
+        char* outName = param->getOutputRedirect();
+        char* inName = param->getInputRedirect();
         char** args = param->getArguments();
+        int ret = 0;
+        
         // redirect input
-        if(param->getInputRedirect() != NULL){
-            FILE* infd = freopen(param->getInputRedirect(), "r", stdin);
+        if(inName != NULL){
+            FILE* infd = freopen(inName, "r", stdin);
             if(infd == NULL){
                 cerr << "Error: open stdin failed" << endl;
                 exit(1);
@@ -43,13 +46,14 @@ void Parse::execute(){
         }
         
         // output redirect
-        if(param->getInputRedirect() != NULL){
-            FILE* outfd = freopen(param->getOutputRedirect(), "w", stdout);
+        if(outName != NULL){
+            FILE* outfd = freopen(outName, "w", stdout);
             if(outfd == NULL){
                 cerr << "Error: open stdout failed" << endl;
                 exit(1);
             }
         }
+        
         // char* args[] = { "ls", "-la", NULL };
         if((ret = execvp(args[0], args)) < 0){
             cout << "Error: execvp failed : " << ret << endl;
