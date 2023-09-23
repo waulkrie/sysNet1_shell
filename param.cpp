@@ -68,13 +68,11 @@ bool Param::analyzeToken(char* token)
 {
     string temp = token;
     int i = temp.find('<');
-    char fileName[30];
 
     // input redirect
     if (i != -1) {
         if (temp.size() > 1) {
             temp = temp.substr(1);
-            // strcpy(fileName, temp.c_str());
             setInputRedirect(strdup(temp.c_str())); // free
             return false;
         } else
@@ -87,7 +85,6 @@ bool Param::analyzeToken(char* token)
     if (i != -1) {
         if (temp.size() > 1) {
             temp = temp.substr(1);
-            // strcpy(fileName, temp.c_str());
             setOutputRedirect(strdup(temp.c_str()));
             return false;
         } else
