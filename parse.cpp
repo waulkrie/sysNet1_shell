@@ -31,10 +31,11 @@ void Parse::execute(){
         exit(1);
     } else if(pid == 0){
         // child process
-        // .... param is pointing back into the parent's memory - danger zone
-        cout << "child " << param->getArguments()[0] << endl;
+        // cout << "child " << param->getArguments()[0] << endl;
         int ret = 0;
-        if((ret = execvp(param->getArguments()[0], &param->getArguments()[1])) < 0){
+        char** args = param->getArguments();
+        // char* args[] = { "ls", "-la", NULL };
+        if((ret = execvp(args[0], args)) < 0){
             cout << "Error: execvp failed : " << ret << endl;
             exit(1);
         }
